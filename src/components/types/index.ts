@@ -1,5 +1,7 @@
 export type Category = 'general' | 'business' | 'entertainment' | 'health' | 'science' | 'sports' | 'technology';
 
+export type Callback<T> = (data: T) => void;
+
 export enum Endpoint {
     SOURCES = 'sources',
     EVERYTHING = 'everything',
@@ -42,4 +44,9 @@ export interface SourcesResponse extends BaseResponse {
 export interface EverythingResponse extends BaseResponse {
     totalResults: number;
     articles: Article[];
+}
+
+export interface LoadOptions {
+    endpoint: Endpoint;
+    options?: Record<string, string>;
 }
