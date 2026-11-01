@@ -1,27 +1,36 @@
+import { Endpoint, type Callback, type EverythingResponse, type SourcesResponse } from '../types';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    public getSources(callback: Callback<SourcesResponse>): void {
         super.getResp(
             {
-                endpoint: 'sources',
+                endpoint: Endpoint.SOURCES,
             },
             callback
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
+    public getNews(e: MouseEvent, callback: Callback<EverythingResponse>): void {
+        let target: HTMLElement | null = e.target instanceof HTMLElement ? e.target : null;
+        if (!target) {
+            console.error('Event target is not an HTMLElement');
+            return;
+        }
         const newsContainer = e.currentTarget;
+        if (!(newsContainer instanceof HTMLElement)) {
+            console.error('Event currentTarget is not an HTMLElement');
+            return;
+        }
 
-        while (target !== newsContainer) {
+        while (target && target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
-                if (newsContainer.getAttribute('data-source') !== sourceId) {
+                if (sourceId && newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
-                            endpoint: 'everything',
+                            endpoint: Endpoint.EVERYTHING,
                             options: {
                                 sources: sourceId,
                             },
@@ -31,7 +40,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = target.parentElement;
         }
     }
 }
