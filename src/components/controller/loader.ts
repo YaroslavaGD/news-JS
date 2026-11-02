@@ -3,8 +3,8 @@ type HttpMethod = 'GET' | 'POST';
 
 class Loader {
     private readonly baseLink: string;
-    private readonly options: Record<string, string>;
-    constructor(baseLink: string, options: Record<string, string>) {
+    private readonly options: Readonly<Record<string, string>>;
+    constructor(baseLink: string, options: Readonly<Record<string, string>>) {
         this.baseLink = baseLink;
         this.options = options;
     }
@@ -28,7 +28,7 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: Record<string, string>, endpoint: Endpoint): string {
+    private makeUrl(options: Readonly<Record<string, string>>, endpoint: Endpoint): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -43,7 +43,7 @@ class Loader {
         method: HttpMethod,
         endpoint: Endpoint,
         callback: Callback<T>,
-        options: Record<string, string> = {}
+        options: Readonly<Record<string, string>> = {}
     ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)

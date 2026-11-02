@@ -48,5 +48,5 @@ export interface EverythingResponse extends BaseResponse {
 
 export interface LoadOptions {
     endpoint: Endpoint;
-    options?: Record<string, string>;
+    options?: Readonly<Record<string, string>>;
 }
