@@ -1,18 +1,17 @@
 .sources {
+    overflow-x: hidden;
+    min-height: 0;
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    max-height: 220px;
+    flex-direction: column;
     overflow-y: auto;
-    align-items: center;
+    overscroll-behavior: contain;
+    padding: 0.5em;
+    scrollbar-width: thin;
+    scrollbar-color: #30c5ff #17181c;
     font:
         300 1em 'Fira Sans',
         sans-serif;
-    padding: 0.5em;
-    box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: #30c5ff #17181c;
 }
 
 .source__item[hidden] {
@@ -20,12 +19,14 @@
 }
 
 .source__item {
+    flex-shrink: 0;
+    text-align: center;
     background: none;
     border: 2px solid #30c5ff;
     font: inherit;
-    line-height: 1;
+    line-height: 1.25;
     margin: 0.5em;
-    padding: 1em 2em;
+    padding: 0.8em 1em;
     color: #70d6ff;
     transition: 0.25s;
     cursor: pointer;
@@ -41,14 +42,15 @@
 
 .source__item-name {
     font-weight: 400;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .sources-search {
+    width: 100%;
+    max-width: none;
+    margin: 0;
     display: block;
-    width: calc(100% - 2em);
-    max-width: 400px;
-    margin: 0.5em auto;
     padding: 0.7em 1em;
     box-sizing: border-box;
     background: none;

@@ -7,10 +7,7 @@
         <title>NewsPortal</title>
     </head>
     <body>
-        <header>
-            <h1>News Portal</h1>
-        </header>
-        <main>
+        <aside class="sidebar" id="sidebar">
             <input
                 class="sources-search"
                 type="search"
@@ -19,28 +16,46 @@
                 aria-label="Search sources"
             />
             <div class="sources buttons"></div>
-            <div class="news"></div>
-        </main>
-        <footer class="footer">
-            <a href="https://github.com/YaroslavaGD" class="footer__link footer__link--logo" target="_blank">
-                <img
-                    class="footer__img"
-                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-                    alt=""
-                />
-                GitHub
-            </a>
+        </aside>
+        <div class="page">
+            <header>
+                <h1>News Portal</h1>
+                <button
+                    class="burger"
+                    type="button"
+                    aria-label="Open sources menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+            </header>
+            <main>
+                <div class="news"></div>
+            </main>
+            <footer class="footer">
+                <a href="https://github.com/YaroslavaGD" class="footer__link footer__link--logo" target="_blank">
+                    <img
+                        class="footer__img"
+                        src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                        alt=""
+                    />
+                    GitHub
+                </a>
 
-            <a href="https://rs.school/courses/javascript" class="footer__link footer__link--logo" target="_blank">
-                <img class="footer__img" src="https://rs.school/_next/static/media/rss-logo.c19ce1b4.svg" alt="" />
-                RS School
-            </a>
-            <p class="footer__text copyright">
-                Copyright
-                <a class="footer__link" aria-label="NewsAPI" href="https://newsapi.org" target="_blank">NewsAPI</a>
-            </p>
-            <p class="footer__text year">2026</p>
-        </footer>
+                <a href="https://rs.school/courses/javascript" class="footer__link footer__link--logo" target="_blank">
+                    <img class="footer__img" src="https://rs.school/_next/static/media/rss-logo.c19ce1b4.svg" alt="" />
+                    RS School
+                </a>
+                <p class="footer__text copyright">
+                    Copyright
+                    <a class="footer__link" aria-label="NewsAPI" href="https://newsapi.org" target="_blank">NewsAPI</a>
+                </p>
+                <p class="footer__text year">2026</p>
+            </footer>
+        </div>
+
+        <div class="overlay"></div>
 
         <template id="sourceItemTemp">
             <div class="source__item">

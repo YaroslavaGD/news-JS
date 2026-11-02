@@ -11,6 +11,7 @@ class App {
     }
 
     public start(): void {
+        this.setupMenu();
         getElementBySelector<HTMLElement>('.sources').addEventListener('click', (e) =>
             this.controller.getNews(e, (data) => this.view.drawNews(data))
         );
@@ -18,6 +19,28 @@ class App {
 
         const searchInput = getElementBySelector<HTMLInputElement>('.sources-search');
         searchInput.addEventListener('input', () => this.view.filterSources(searchInput.value));
+    }
+
+    private setupMenu(): void {
+        const burger = getElementBySelector<HTMLButtonElement>('.burger');
+        const sidebar = getElementBySelector<HTMLElement>('.sidebar');
+        const overlay = getElementBySelector<HTMLElement>('.overlay');
+
+        const toggle = (isOpen: boolean): void => {
+            sidebar.classList.toggle('open', isOpen);
+            overlay.classList.toggle('visible', isOpen);
+            burger.setAttribute('aria-expanded', String(isOpen));
+            document.documentElement.classList.toggle('no-scroll', isOpen);
+        };
+
+        burger.addEventListener('click', () => toggle(!sidebar.classList.contains('open')));
+        overlay.addEventListener('click', () => toggle(false));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') toggle(false);
+        });
+        getElementBySelector('.sources', sidebar).addEventListener('click', (e) => {
+            if (e.target instanceof HTMLElement && e.target.closest('.source__item')) toggle(false);
+        });
     }
 }
 
