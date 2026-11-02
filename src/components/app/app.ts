@@ -3,19 +3,19 @@ import { AppView } from '../view/appView';
 import { getElementBySelector } from '../utils';
 
 class App {
-    private readonly controller: AppController;
-    private readonly view: AppView;
-    constructor() {
-        this.controller = new AppController();
-        this.view = new AppView();
-    }
+  private readonly controller: AppController;
+  private readonly view: AppView;
+  constructor() {
+    this.controller = new AppController();
+    this.view = new AppView();
+  }
 
-    public start(): void {
-        getElementBySelector<HTMLElement>('.sources').addEventListener('click', (e) =>
-            this.controller.getNews(e, (data) => this.view.drawNews(data))
-        );
-        this.controller.getSources((data) => this.view.drawSources(data));
-    }
+  public start(): void {
+    getElementBySelector<HTMLElement>('.sources').addEventListener('click', (e) =>
+      this.controller.getNews(e, (data) => this.view.drawNews(data))
+    );
+    this.controller.getSources((data) => this.view.drawSources(data));
+  }
 }
 
 export default App;
