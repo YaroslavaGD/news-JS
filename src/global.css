@@ -2,15 +2,33 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
 }
 
 header {
-    padding: 10px 30px;
+    padding: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 30px);
+    text-align: center;
 }
 
 header h1 {
-    font-size: 40px;
+    margin: 0;
+    font-size: clamp(1.75rem, 6vw, 3rem);
     font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: #30c5ff;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #30c5ff, #69db7e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+main {
+    flex-grow: 1;
 }
 
 .footer {
