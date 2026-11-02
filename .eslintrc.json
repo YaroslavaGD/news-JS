@@ -21,7 +21,6 @@
         "no-console": 0,
         "class-methods-use-this": "off",
         "linebreak-style": "off",
-        "prettier/prettier": "off",
         "@typescript-eslint/no-explicit-any": "error"
     }
 }
