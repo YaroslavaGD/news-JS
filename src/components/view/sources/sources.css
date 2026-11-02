@@ -1,13 +1,18 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    height: 120px;
-    overflow: auto;
+    max-height: 200px;
+    overflow-y: auto;
     align-items: center;
     font:
         300 1em 'Fira Sans',
         sans-serif;
+}
+
+.source__item[hidden] {
+    display: none;
 }
 
 .source__item {
@@ -33,4 +38,32 @@
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
+}
+
+.sources-search {
+    display: block;
+    width: calc(100% - 2em);
+    max-width: 400px;
+    margin: 0.5em auto;
+    padding: 0.7em 1em;
+    box-sizing: border-box;
+    background: none;
+    border: 2px solid #30c5ff;
+    border-radius: 4px;
+    color: #70d6ff;
+    font: inherit;
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s;
+}
+
+.sources-search::placeholder {
+    color: #30c5ff;
+    opacity: 0.6;
+}
+
+.sources-search:focus {
+    outline: none;
+    border-color: #3fcc59;
+    box-shadow: 0 0.3em 0.5em -0.4em #3fcc59;
 }

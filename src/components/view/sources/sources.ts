@@ -23,6 +23,15 @@ class Sources {
 
         sourcesContainer.append(fragment);
     }
+    public filter(query: string): void {
+        const normalized = query.trim().toLowerCase();
+        const items = document.querySelectorAll<HTMLElement>('.source__item');
+
+        items.forEach((item) => {
+            const name = item.textContent?.toLowerCase() ?? '';
+            item.hidden = !name.includes(normalized);
+        });
+    }
 }
 
 export default Sources;

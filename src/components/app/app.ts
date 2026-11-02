@@ -15,6 +15,9 @@ class App {
             this.controller.getNews(e, (data) => this.view.drawNews(data))
         );
         this.controller.getSources((data) => this.view.drawSources(data));
+
+        const searchInput = getElementBySelector<HTMLInputElement>('.sources-search');
+        searchInput.addEventListener('input', () => this.view.filterSources(searchInput.value));
     }
 }
 

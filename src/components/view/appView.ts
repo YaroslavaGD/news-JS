@@ -20,6 +20,9 @@ export class AppView {
         const values = data.sources;
         this.sources.draw(values);
     }
+    public filterSources(query: string): void {
+        this.sources.filter(query);
+    }
 }
 
 export default AppView;
