@@ -1,22 +1,22 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "target": "es2020",
-    "types": ["node"],
+    // Visit https://aka.ms/tsconfig to read more about this file
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "module": "esnext",
+        "moduleResolution": "bundler",
+        "target": "es2020",
+        "types": ["node"],
 
-    "sourceMap": true,
-    "strict": true,
-    "noImplicitAny": true,
+        "sourceMap": true,
+        "strict": true,
+        "noImplicitAny": true,
 
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
 }
